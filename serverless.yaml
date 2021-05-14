@@ -54,6 +54,18 @@ functions:
       - Effect: Allow
         Action: 
           - dynamodb:PutItem
+  
+  listTodos: 
+    handler: src/functions/listTodos/index.handle
+    events:
+      - http:
+          path: /todos/{user_id}
+          method: get
+          cors: true
+    iamRoleStatements:
+      - Effect: Allow
+        Action: 
+          - dynamodb:Query
 
 resources:
   Resources:

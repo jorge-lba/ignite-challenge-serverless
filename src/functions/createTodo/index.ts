@@ -19,7 +19,7 @@ export const handle = async (event: APIGatewayEvent) => {
       user_id,
       title,
       done: false,
-      deadline
+      deadline: new Date(deadline)
     }
   }).promise()
 
